@@ -53,6 +53,7 @@ echo "[*] Please wait"
 myipv4=$(ifconfig wlan0 | grep 'inet' | grep -v '::1' | grep -v '127.0.0.1' | awk NR==1'{print $2}')
 myid=$(sshd | whoami )
 cd ~
+rm -rf ssh
 if [ -f "ssh" ]
 then
 rm ssh
@@ -81,5 +82,5 @@ nmap localhost
 echo "Create password to your ssh"
 passwd $myid
 echo "[*] Done "
-echo "[*] Hint: Use ./~/ssh to run ssh"
+echo "[*] Hint: Use ~/./ssh to run ssh"
 echo "[*] Hint: Use pkill ssh to stop ssh"
